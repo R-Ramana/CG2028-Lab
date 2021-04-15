@@ -1,6 +1,14 @@
-12:54:51 **** Incremental Build of configuration Debug for project CG2028AssignS2AY2021 ****
+14:16:52 **** Incremental Build of configuration Debug for project CG2028AssignS2AY2021 ****
 make all 
-make: Nothing to be done for `all'.
+Building file: ../src/iir.s
+Invoking: MCU Assembler
+arm-none-eabi-gcc -c -x assembler-with-cpp -DDEBUG -D__CODE_RED -D__REDLIB__ -g3 -mcpu=cortex-m3 -mthumb -o"src/iir.o" "../src/iir.s"
+../src/iir.s: Assembler messages:
+../src/iir.s:203: Error: symbol `loop' is already defined
+../src/iir.s:244: Error: symbol `circle' is already defined
+../src/iir.s:256: Error: symbol `zero' is already defined
+../src/iir.s:262: Error: symbol `end' is already defined
+make: *** [src/iir.o] Error 1
 
-12:54:52 Build Finished (took 280ms)
+14:16:53 Build Finished (took 991ms)
 

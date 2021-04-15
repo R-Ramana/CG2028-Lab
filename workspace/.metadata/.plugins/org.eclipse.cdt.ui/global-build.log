@@ -124,3 +124,45 @@ make: Nothing to be done for `all'.
 12:54:51 **** Incremental Build of configuration Debug for project CG2028AssignS2AY2021 ****
 make all 
 make: Nothing to be done for `all'.
+14:14:08 **** Incremental Build of configuration Debug for project Lib_CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+14:14:14 **** Incremental Build of configuration Debug for project CG2028AssignS2AY2021 ****
+make all 
+Building file: ../src/iir.s
+Invoking: MCU Assembler
+arm-none-eabi-gcc -c -x assembler-with-cpp -DDEBUG -D__CODE_RED -D__REDLIB__ -g3 -mcpu=cortex-m3 -mthumb -o"src/iir.o" "../src/iir.s"
+../src/iir.s: Assembler messages:
+../src/iir.s:19: Error: junk at end of line, first unrecognized character is `<'
+../src/iir.s:27: Error: junk at end of line, first unrecognized character is `='
+../src/iir.s:36: Error: junk at end of line, first unrecognized character is `>'
+../src/iir.s:42: Error: junk at end of line, first unrecognized character is `<'
+../src/iir.s:44: Error: junk at end of line, first unrecognized character is `='
+../src/iir.s:46: Error: junk at end of line, first unrecognized character is `>'
+../src/iir.s:218: Error: symbol `loop' is already defined
+../src/iir.s:259: Error: symbol `circle' is already defined
+../src/iir.s:271: Error: symbol `zero' is already defined
+../src/iir.s:277: Error: symbol `end' is already defined
+../src/iir.s:325: Error: junk at end of line, first unrecognized character is `<'
+../src/iir.s:327: Error: junk at end of line, first unrecognized character is `='
+../src/iir.s:329: Error: junk at end of line, first unrecognized character is `>'
+../src/iir.s:336: Error: junk at end of line, first unrecognized character is `<'
+../src/iir.s:342: Error: junk at end of line, first unrecognized character is `='
+../src/iir.s:346: Error: symbol `x_store' is already defined
+../src/iir.s:347: Error: symbol `y_store' is already defined
+../src/iir.s:348: Error: junk at end of line, first unrecognized character is `>'
+make: *** [src/iir.o] Error 1
+14:16:48 **** Incremental Build of configuration Debug for project Lib_CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+14:16:52 **** Incremental Build of configuration Debug for project CG2028AssignS2AY2021 ****
+make all 
+Building file: ../src/iir.s
+Invoking: MCU Assembler
+arm-none-eabi-gcc -c -x assembler-with-cpp -DDEBUG -D__CODE_RED -D__REDLIB__ -g3 -mcpu=cortex-m3 -mthumb -o"src/iir.o" "../src/iir.s"
+../src/iir.s: Assembler messages:
+../src/iir.s:203: Error: symbol `loop' is already defined
+../src/iir.s:244: Error: symbol `circle' is already defined
+../src/iir.s:256: Error: symbol `zero' is already defined
+../src/iir.s:262: Error: symbol `end' is already defined
+make: *** [src/iir.o] Error 1
