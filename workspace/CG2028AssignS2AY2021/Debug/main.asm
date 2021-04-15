@@ -84,14 +84,14 @@
   64              		.cfi_def_cfa_register 7
   14:../src/main.c **** 	//variables
   15:../src/main.c **** 	int i;
-  16:../src/main.c **** 	int N = 4;
+  16:../src/main.c **** 	int N = 8;
   65              		.loc 1 16 0
-  66 0006 4FF00403 		mov	r3, #4
+  66 0006 4FF00803 		mov	r3, #8
   67 000a C7F88830 		str	r3, [r7, #136]
   17:../src/main.c **** 	// think of the values below as numbers of the form y.yy (floating point with 2 digits precision)
   18:../src/main.c **** 	// which are scaled up to allow them to be used integers
   19:../src/main.c **** 	// within the iir function, we divide y by 100 (decimal) to scale it down
-  20:../src/main.c **** 	int b[N_MAX+1] = {100, 250, 360, 450, 580}; //N+1 dimensional feedforward
+  20:../src/main.c **** 	int b[N_MAX+1] = {100, 250, 360, 450, 580, 690, 710, 820, 900, 1030}; //N+1 dimensional feedforwar
   68              		.loc 1 20 0
   69 000e 07F15C03 		add	r3, r7, #92
   70 0012 4FF00002 		mov	r2, #0
@@ -137,157 +137,177 @@
  110 0096 BB66     		str	r3, [r7, #104]
  111 0098 4FF41173 		mov	r3, #580
  112 009c FB66     		str	r3, [r7, #108]
-  21:../src/main.c **** 	int a[N_MAX+1] = {100, 120, 180, 230, 250}; //N+1 dimensional feedback
- 113              		.loc 1 21 0
- 114 009e 07F13003 		add	r3, r7, #48
- 115 00a2 4FF00002 		mov	r2, #0
- 116 00a6 1A60     		str	r2, [r3, #0]
- 117 00a8 03F10403 		add	r3, r3, #4
- 118 00ac 4FF00002 		mov	r2, #0
- 119 00b0 1A60     		str	r2, [r3, #0]
- 120 00b2 03F10403 		add	r3, r3, #4
- 121 00b6 4FF00002 		mov	r2, #0
- 122 00ba 1A60     		str	r2, [r3, #0]
- 123 00bc 03F10403 		add	r3, r3, #4
- 124 00c0 4FF00002 		mov	r2, #0
- 125 00c4 1A60     		str	r2, [r3, #0]
- 126 00c6 03F10403 		add	r3, r3, #4
- 127 00ca 4FF00002 		mov	r2, #0
- 128 00ce 1A60     		str	r2, [r3, #0]
- 129 00d0 03F10403 		add	r3, r3, #4
- 130 00d4 4FF00002 		mov	r2, #0
- 131 00d8 1A60     		str	r2, [r3, #0]
- 132 00da 03F10403 		add	r3, r3, #4
- 133 00de 4FF00002 		mov	r2, #0
- 134 00e2 1A60     		str	r2, [r3, #0]
- 135 00e4 03F10403 		add	r3, r3, #4
- 136 00e8 4FF00002 		mov	r2, #0
- 137 00ec 1A60     		str	r2, [r3, #0]
- 138 00ee 03F10403 		add	r3, r3, #4
- 139 00f2 4FF00002 		mov	r2, #0
- 140 00f6 1A60     		str	r2, [r3, #0]
- 141 00f8 03F10403 		add	r3, r3, #4
- 142 00fc 4FF00002 		mov	r2, #0
- 143 0100 1A60     		str	r2, [r3, #0]
- 144 0102 03F10403 		add	r3, r3, #4
- 145 0106 4FF00002 		mov	r2, #0
- 146 010a 1A60     		str	r2, [r3, #0]
- 147 010c 03F10403 		add	r3, r3, #4
- 148 0110 4FF06403 		mov	r3, #100
- 149 0114 3B63     		str	r3, [r7, #48]
- 150 0116 4FF07803 		mov	r3, #120
- 151 011a 7B63     		str	r3, [r7, #52]
- 152 011c 4FF0B403 		mov	r3, #180
- 153 0120 BB63     		str	r3, [r7, #56]
- 154 0122 4FF0E603 		mov	r3, #230
- 155 0126 FB63     		str	r3, [r7, #60]
- 156 0128 4FF0FA03 		mov	r3, #250
- 157 012c 3B64     		str	r3, [r7, #64]
+ 113 009e 40F2B223 		movw	r3, #690
+ 114 00a2 3B67     		str	r3, [r7, #112]
+ 115 00a4 40F2C623 		movw	r3, #710
+ 116 00a8 7B67     		str	r3, [r7, #116]
+ 117 00aa 4FF44D73 		mov	r3, #820
+ 118 00ae BB67     		str	r3, [r7, #120]
+ 119 00b0 4FF46173 		mov	r3, #900
+ 120 00b4 FB67     		str	r3, [r7, #124]
+ 121 00b6 40F20643 		movw	r3, #1030
+ 122 00ba C7F88030 		str	r3, [r7, #128]
+  21:../src/main.c **** 	int a[N_MAX+1] = {100, 120, 180, 230, 250, 340, 260, 130, 140, 80}; //N+1 dimensional feedback
+ 123              		.loc 1 21 0
+ 124 00be 07F13003 		add	r3, r7, #48
+ 125 00c2 4FF00002 		mov	r2, #0
+ 126 00c6 1A60     		str	r2, [r3, #0]
+ 127 00c8 03F10403 		add	r3, r3, #4
+ 128 00cc 4FF00002 		mov	r2, #0
+ 129 00d0 1A60     		str	r2, [r3, #0]
+ 130 00d2 03F10403 		add	r3, r3, #4
+ 131 00d6 4FF00002 		mov	r2, #0
+ 132 00da 1A60     		str	r2, [r3, #0]
+ 133 00dc 03F10403 		add	r3, r3, #4
+ 134 00e0 4FF00002 		mov	r2, #0
+ 135 00e4 1A60     		str	r2, [r3, #0]
+ 136 00e6 03F10403 		add	r3, r3, #4
+ 137 00ea 4FF00002 		mov	r2, #0
+ 138 00ee 1A60     		str	r2, [r3, #0]
+ 139 00f0 03F10403 		add	r3, r3, #4
+ 140 00f4 4FF00002 		mov	r2, #0
+ 141 00f8 1A60     		str	r2, [r3, #0]
+ 142 00fa 03F10403 		add	r3, r3, #4
+ 143 00fe 4FF00002 		mov	r2, #0
+ 144 0102 1A60     		str	r2, [r3, #0]
+ 145 0104 03F10403 		add	r3, r3, #4
+ 146 0108 4FF00002 		mov	r2, #0
+ 147 010c 1A60     		str	r2, [r3, #0]
+ 148 010e 03F10403 		add	r3, r3, #4
+ 149 0112 4FF00002 		mov	r2, #0
+ 150 0116 1A60     		str	r2, [r3, #0]
+ 151 0118 03F10403 		add	r3, r3, #4
+ 152 011c 4FF00002 		mov	r2, #0
+ 153 0120 1A60     		str	r2, [r3, #0]
+ 154 0122 03F10403 		add	r3, r3, #4
+ 155 0126 4FF00002 		mov	r2, #0
+ 156 012a 1A60     		str	r2, [r3, #0]
+ 157 012c 03F10403 		add	r3, r3, #4
+ 158 0130 4FF06403 		mov	r3, #100
+ 159 0134 3B63     		str	r3, [r7, #48]
+ 160 0136 4FF07803 		mov	r3, #120
+ 161 013a 7B63     		str	r3, [r7, #52]
+ 162 013c 4FF0B403 		mov	r3, #180
+ 163 0140 BB63     		str	r3, [r7, #56]
+ 164 0142 4FF0E603 		mov	r3, #230
+ 165 0146 FB63     		str	r3, [r7, #60]
+ 166 0148 4FF0FA03 		mov	r3, #250
+ 167 014c 3B64     		str	r3, [r7, #64]
+ 168 014e 4FF4AA73 		mov	r3, #340
+ 169 0152 7B64     		str	r3, [r7, #68]
+ 170 0154 4FF48273 		mov	r3, #260
+ 171 0158 BB64     		str	r3, [r7, #72]
+ 172 015a 4FF08203 		mov	r3, #130
+ 173 015e FB64     		str	r3, [r7, #76]
+ 174 0160 4FF08C03 		mov	r3, #140
+ 175 0164 3B65     		str	r3, [r7, #80]
+ 176 0166 4FF05003 		mov	r3, #80
+ 177 016a 7B65     		str	r3, [r7, #84]
   22:../src/main.c **** 	int x[X_SIZE] = {100, 230, 280, 410, 540, 600, 480, 390, 250, 160, 100, 340};
- 158              		.loc 1 22 0
- 159 012e 40F20003 		movw	r3, #:lower16:.LC0
- 160 0132 C0F20003 		movt	r3, #:upper16:.LC0
- 161 0136 3C46     		mov	r4, r7
- 162 0138 1D46     		mov	r5, r3
- 163 013a 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
- 164 013c 0FC4     		stmia	r4!, {r0, r1, r2, r3}
- 165 013e 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
- 166 0140 0FC4     		stmia	r4!, {r0, r1, r2, r3}
- 167 0142 95E80F00 		ldmia	r5, {r0, r1, r2, r3}
- 168 0146 84E80F00 		stmia	r4, {r0, r1, r2, r3}
+ 178              		.loc 1 22 0
+ 179 016c 40F20003 		movw	r3, #:lower16:.LC0
+ 180 0170 C0F20003 		movt	r3, #:upper16:.LC0
+ 181 0174 3C46     		mov	r4, r7
+ 182 0176 1D46     		mov	r5, r3
+ 183 0178 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 184 017a 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 185 017c 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 186 017e 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 187 0180 95E80F00 		ldmia	r5, {r0, r1, r2, r3}
+ 188 0184 84E80F00 		stmia	r4, {r0, r1, r2, r3}
   23:../src/main.c **** 
   24:../src/main.c **** 	// Call assembly language function iir for each element of x
   25:../src/main.c **** 	for (i=0; i<X_SIZE; i++)
- 169              		.loc 1 25 0
- 170 014a 4FF00003 		mov	r3, #0
- 171 014e C7F88C30 		str	r3, [r7, #140]
- 172 0152 3DE0     		b	.L2
- 173              	.L3:
+ 189              		.loc 1 25 0
+ 190 0188 4FF00003 		mov	r3, #0
+ 191 018c C7F88C30 		str	r3, [r7, #140]
+ 192 0190 3DE0     		b	.L2
+ 193              	.L3:
   26:../src/main.c **** 	{
   27:../src/main.c **** 		printf( "asm: i = %d, y_n = %d, \n", i, iir(N, b, a, x[i]) ) ;
- 174              		.loc 1 27 0 discriminator 2
- 175 0154 40F20004 		movw	r4, #:lower16:.LC1
- 176 0158 C0F20004 		movt	r4, #:upper16:.LC1
- 177 015c D7F88C30 		ldr	r3, [r7, #140]
- 178 0160 4FEA8303 		lsl	r3, r3, #2
- 179 0164 07F19002 		add	r2, r7, #144
- 180 0168 D318     		adds	r3, r2, r3
- 181 016a 53F8903C 		ldr	r3, [r3, #-144]
- 182 016e 07F15C01 		add	r1, r7, #92
- 183 0172 07F13002 		add	r2, r7, #48
- 184 0176 D7F88800 		ldr	r0, [r7, #136]
- 185 017a FFF7FEFF 		bl	iir
- 186 017e 0346     		mov	r3, r0
- 187 0180 2046     		mov	r0, r4
- 188 0182 D7F88C10 		ldr	r1, [r7, #140]
- 189 0186 1A46     		mov	r2, r3
- 190 0188 FFF7FEFF 		bl	printf
+ 194              		.loc 1 27 0 discriminator 2
+ 195 0192 40F20004 		movw	r4, #:lower16:.LC1
+ 196 0196 C0F20004 		movt	r4, #:upper16:.LC1
+ 197 019a D7F88C30 		ldr	r3, [r7, #140]
+ 198 019e 4FEA8303 		lsl	r3, r3, #2
+ 199 01a2 07F19002 		add	r2, r7, #144
+ 200 01a6 D318     		adds	r3, r2, r3
+ 201 01a8 53F8903C 		ldr	r3, [r3, #-144]
+ 202 01ac 07F15C01 		add	r1, r7, #92
+ 203 01b0 07F13002 		add	r2, r7, #48
+ 204 01b4 D7F88800 		ldr	r0, [r7, #136]
+ 205 01b8 FFF7FEFF 		bl	iir
+ 206 01bc 0346     		mov	r3, r0
+ 207 01be 2046     		mov	r0, r4
+ 208 01c0 D7F88C10 		ldr	r1, [r7, #140]
+ 209 01c4 1A46     		mov	r2, r3
+ 210 01c6 FFF7FEFF 		bl	printf
   28:../src/main.c **** 		printf( "C  : i = %d, y_n = %d, \n", i, iir_c(N, b, a, x[i]) ) ;
- 191              		.loc 1 28 0 discriminator 2
- 192 018c 40F20004 		movw	r4, #:lower16:.LC2
- 193 0190 C0F20004 		movt	r4, #:upper16:.LC2
- 194 0194 D7F88C30 		ldr	r3, [r7, #140]
- 195 0198 4FEA8303 		lsl	r3, r3, #2
- 196 019c 07F19002 		add	r2, r7, #144
- 197 01a0 D318     		adds	r3, r2, r3
- 198 01a2 53F8903C 		ldr	r3, [r3, #-144]
- 199 01a6 07F15C01 		add	r1, r7, #92
- 200 01aa 07F13002 		add	r2, r7, #48
- 201 01ae D7F88800 		ldr	r0, [r7, #136]
- 202 01b2 FFF7FEFF 		bl	iir_c
- 203 01b6 0346     		mov	r3, r0
- 204 01b8 2046     		mov	r0, r4
- 205 01ba D7F88C10 		ldr	r1, [r7, #140]
- 206 01be 1A46     		mov	r2, r3
- 207 01c0 FFF7FEFF 		bl	printf
+ 211              		.loc 1 28 0 discriminator 2
+ 212 01ca 40F20004 		movw	r4, #:lower16:.LC2
+ 213 01ce C0F20004 		movt	r4, #:upper16:.LC2
+ 214 01d2 D7F88C30 		ldr	r3, [r7, #140]
+ 215 01d6 4FEA8303 		lsl	r3, r3, #2
+ 216 01da 07F19002 		add	r2, r7, #144
+ 217 01de D318     		adds	r3, r2, r3
+ 218 01e0 53F8903C 		ldr	r3, [r3, #-144]
+ 219 01e4 07F15C01 		add	r1, r7, #92
+ 220 01e8 07F13002 		add	r2, r7, #48
+ 221 01ec D7F88800 		ldr	r0, [r7, #136]
+ 222 01f0 FFF7FEFF 		bl	iir_c
+ 223 01f4 0346     		mov	r3, r0
+ 224 01f6 2046     		mov	r0, r4
+ 225 01f8 D7F88C10 		ldr	r1, [r7, #140]
+ 226 01fc 1A46     		mov	r2, r3
+ 227 01fe FFF7FEFF 		bl	printf
   25:../src/main.c **** 	for (i=0; i<X_SIZE; i++)
- 208              		.loc 1 25 0 discriminator 2
- 209 01c4 D7F88C30 		ldr	r3, [r7, #140]
- 210 01c8 03F10103 		add	r3, r3, #1
- 211 01cc C7F88C30 		str	r3, [r7, #140]
- 212              	.L2:
+ 228              		.loc 1 25 0 discriminator 2
+ 229 0202 D7F88C30 		ldr	r3, [r7, #140]
+ 230 0206 03F10103 		add	r3, r3, #1
+ 231 020a C7F88C30 		str	r3, [r7, #140]
+ 232              	.L2:
   25:../src/main.c **** 	for (i=0; i<X_SIZE; i++)
- 213              		.loc 1 25 0 is_stmt 0 discriminator 1
- 214 01d0 D7F88C30 		ldr	r3, [r7, #140]
- 215 01d4 0B2B     		cmp	r3, #11
- 216 01d6 BDDD     		ble	.L3
- 217              	.L4:
+ 233              		.loc 1 25 0 is_stmt 0 discriminator 1
+ 234 020e D7F88C30 		ldr	r3, [r7, #140]
+ 235 0212 0B2B     		cmp	r3, #11
+ 236 0214 BDDD     		ble	.L3
+ 237              	.L4:
   29:../src/main.c **** 	}
   30:../src/main.c **** 	while (1); //halt
- 218              		.loc 1 30 0 is_stmt 1 discriminator 1
- 219 01d8 FEE7     		b	.L4
- 220              		.cfi_endproc
- 221              	.LFE0:
- 223 01da 00BF     		.section	.text.iir_c,"ax",%progbits
- 224              		.align	2
- 225              		.global	iir_c
- 226              		.thumb
- 227              		.thumb_func
- 229              	iir_c:
- 230              	.LFB1:
+ 238              		.loc 1 30 0 is_stmt 1 discriminator 1
+ 239 0216 FEE7     		b	.L4
+ 240              		.cfi_endproc
+ 241              	.LFE0:
+ 243              		.section	.text.iir_c,"ax",%progbits
+ 244              		.align	2
+ 245              		.global	iir_c
+ 246              		.thumb
+ 247              		.thumb_func
+ 249              	iir_c:
+ 250              	.LFB1:
   31:../src/main.c **** }
   32:../src/main.c **** 
   33:../src/main.c **** int iir_c(int N, int* b, int* a, int x_n)
   34:../src/main.c **** { 	// The implementation below is inefficient and meant only for verifying your results.
- 231              		.loc 1 34 0
- 232              		.cfi_startproc
- 233              		@ args = 0, pretend = 0, frame = 24
- 234              		@ frame_needed = 1, uses_anonymous_args = 0
- 235              		@ link register save eliminated.
- 236 0000 80B4     		push	{r7}
- 237              	.LCFI3:
- 238              		.cfi_def_cfa_offset 4
- 239              		.cfi_offset 7, -4
- 240 0002 87B0     		sub	sp, sp, #28
- 241              	.LCFI4:
- 242              		.cfi_def_cfa_offset 32
- 243 0004 00AF     		add	r7, sp, #0
- 244              	.LCFI5:
- 245              		.cfi_def_cfa_register 7
- 246 0006 F860     		str	r0, [r7, #12]
- 247 0008 B960     		str	r1, [r7, #8]
- 248 000a 7A60     		str	r2, [r7, #4]
- 249 000c 3B60     		str	r3, [r7, #0]
+ 251              		.loc 1 34 0
+ 252              		.cfi_startproc
+ 253              		@ args = 0, pretend = 0, frame = 24
+ 254              		@ frame_needed = 1, uses_anonymous_args = 0
+ 255              		@ link register save eliminated.
+ 256 0000 80B4     		push	{r7}
+ 257              	.LCFI3:
+ 258              		.cfi_def_cfa_offset 4
+ 259              		.cfi_offset 7, -4
+ 260 0002 87B0     		sub	sp, sp, #28
+ 261              	.LCFI4:
+ 262              		.cfi_def_cfa_offset 32
+ 263 0004 00AF     		add	r7, sp, #0
+ 264              	.LCFI5:
+ 265              		.cfi_def_cfa_register 7
+ 266 0006 F860     		str	r0, [r7, #12]
+ 267 0008 B960     		str	r1, [r7, #8]
+ 268 000a 7A60     		str	r2, [r7, #4]
+ 269 000c 3B60     		str	r3, [r7, #0]
   35:../src/main.c **** 
   36:../src/main.c **** 	static int x_store[N_MAX] = {0}; // to store the previous N values of x_n.
   37:../src/main.c **** 	static int y_store[N_MAX] = {0}; // to store the previous values of y_n.
@@ -296,177 +316,177 @@
   40:../src/main.c **** 	int y_n;
   41:../src/main.c **** 
   42:../src/main.c **** 	y_n = x_n*b[0]/a[0];
- 250              		.loc 1 42 0
- 251 000e BB68     		ldr	r3, [r7, #8]
- 252 0010 1B68     		ldr	r3, [r3, #0]
- 253 0012 3A68     		ldr	r2, [r7, #0]
- 254 0014 02FB03F2 		mul	r2, r2, r3
- 255 0018 7B68     		ldr	r3, [r7, #4]
- 256 001a 1B68     		ldr	r3, [r3, #0]
- 257 001c 92FBF3F3 		sdiv	r3, r2, r3
- 258 0020 3B61     		str	r3, [r7, #16]
+ 270              		.loc 1 42 0
+ 271 000e BB68     		ldr	r3, [r7, #8]
+ 272 0010 1B68     		ldr	r3, [r3, #0]
+ 273 0012 3A68     		ldr	r2, [r7, #0]
+ 274 0014 02FB03F2 		mul	r2, r2, r3
+ 275 0018 7B68     		ldr	r3, [r7, #4]
+ 276 001a 1B68     		ldr	r3, [r3, #0]
+ 277 001c 92FBF3F3 		sdiv	r3, r2, r3
+ 278 0020 3B61     		str	r3, [r7, #16]
   43:../src/main.c **** 	
-  44:../src/main.c **** 	for (j=0; j<=N; j++)
- 259              		.loc 1 44 0
- 260 0022 4FF00003 		mov	r3, #0
- 261 0026 7B61     		str	r3, [r7, #20]
- 262 0028 2DE0     		b	.L6
- 263              	.L7:
+  44:../src/main.c **** 	for (j=0; j<N; j++)
+ 279              		.loc 1 44 0
+ 280 0022 4FF00003 		mov	r3, #0
+ 281 0026 7B61     		str	r3, [r7, #20]
+ 282 0028 2DE0     		b	.L6
+ 283              	.L7:
   45:../src/main.c **** 	{
   46:../src/main.c **** 		y_n+=(b[j+1]*x_store[j]-a[j+1]*y_store[j])/a[0];
- 264              		.loc 1 46 0 discriminator 2
- 265 002a 7B69     		ldr	r3, [r7, #20]
- 266 002c 03F10103 		add	r3, r3, #1
- 267 0030 4FEA8303 		lsl	r3, r3, #2
- 268 0034 BA68     		ldr	r2, [r7, #8]
- 269 0036 D318     		adds	r3, r2, r3
- 270 0038 1A68     		ldr	r2, [r3, #0]
- 271 003a 40F20003 		movw	r3, #:lower16:x_store.3834
- 272 003e C0F20003 		movt	r3, #:upper16:x_store.3834
- 273 0042 7969     		ldr	r1, [r7, #20]
- 274 0044 53F82130 		ldr	r3, [r3, r1, lsl #2]
- 275 0048 03FB02F2 		mul	r2, r3, r2
- 276 004c 7B69     		ldr	r3, [r7, #20]
- 277 004e 03F10103 		add	r3, r3, #1
- 278 0052 4FEA8303 		lsl	r3, r3, #2
- 279 0056 7968     		ldr	r1, [r7, #4]
- 280 0058 CB18     		adds	r3, r1, r3
- 281 005a 1968     		ldr	r1, [r3, #0]
- 282 005c 40F20003 		movw	r3, #:lower16:y_store.3835
- 283 0060 C0F20003 		movt	r3, #:upper16:y_store.3835
- 284 0064 7869     		ldr	r0, [r7, #20]
- 285 0066 53F82030 		ldr	r3, [r3, r0, lsl #2]
- 286 006a 03FB01F3 		mul	r3, r3, r1
- 287 006e D21A     		subs	r2, r2, r3
- 288 0070 7B68     		ldr	r3, [r7, #4]
- 289 0072 1B68     		ldr	r3, [r3, #0]
- 290 0074 92FBF3F3 		sdiv	r3, r2, r3
- 291 0078 3A69     		ldr	r2, [r7, #16]
- 292 007a D318     		adds	r3, r2, r3
- 293 007c 3B61     		str	r3, [r7, #16]
-  44:../src/main.c **** 	for (j=0; j<=N; j++)
- 294              		.loc 1 44 0 discriminator 2
- 295 007e 7B69     		ldr	r3, [r7, #20]
- 296 0080 03F10103 		add	r3, r3, #1
- 297 0084 7B61     		str	r3, [r7, #20]
- 298              	.L6:
-  44:../src/main.c **** 	for (j=0; j<=N; j++)
- 299              		.loc 1 44 0 is_stmt 0 discriminator 1
- 300 0086 7A69     		ldr	r2, [r7, #20]
- 301 0088 FB68     		ldr	r3, [r7, #12]
- 302 008a 9A42     		cmp	r2, r3
- 303 008c CDDD     		ble	.L7
+ 284              		.loc 1 46 0 discriminator 2
+ 285 002a 7B69     		ldr	r3, [r7, #20]
+ 286 002c 03F10103 		add	r3, r3, #1
+ 287 0030 4FEA8303 		lsl	r3, r3, #2
+ 288 0034 BA68     		ldr	r2, [r7, #8]
+ 289 0036 D318     		adds	r3, r2, r3
+ 290 0038 1A68     		ldr	r2, [r3, #0]
+ 291 003a 40F20003 		movw	r3, #:lower16:x_store.3834
+ 292 003e C0F20003 		movt	r3, #:upper16:x_store.3834
+ 293 0042 7969     		ldr	r1, [r7, #20]
+ 294 0044 53F82130 		ldr	r3, [r3, r1, lsl #2]
+ 295 0048 03FB02F2 		mul	r2, r3, r2
+ 296 004c 7B69     		ldr	r3, [r7, #20]
+ 297 004e 03F10103 		add	r3, r3, #1
+ 298 0052 4FEA8303 		lsl	r3, r3, #2
+ 299 0056 7968     		ldr	r1, [r7, #4]
+ 300 0058 CB18     		adds	r3, r1, r3
+ 301 005a 1968     		ldr	r1, [r3, #0]
+ 302 005c 40F20003 		movw	r3, #:lower16:y_store.3835
+ 303 0060 C0F20003 		movt	r3, #:upper16:y_store.3835
+ 304 0064 7869     		ldr	r0, [r7, #20]
+ 305 0066 53F82030 		ldr	r3, [r3, r0, lsl #2]
+ 306 006a 03FB01F3 		mul	r3, r3, r1
+ 307 006e D21A     		subs	r2, r2, r3
+ 308 0070 7B68     		ldr	r3, [r7, #4]
+ 309 0072 1B68     		ldr	r3, [r3, #0]
+ 310 0074 92FBF3F3 		sdiv	r3, r2, r3
+ 311 0078 3A69     		ldr	r2, [r7, #16]
+ 312 007a D318     		adds	r3, r2, r3
+ 313 007c 3B61     		str	r3, [r7, #16]
+  44:../src/main.c **** 	for (j=0; j<N; j++)
+ 314              		.loc 1 44 0 discriminator 2
+ 315 007e 7B69     		ldr	r3, [r7, #20]
+ 316 0080 03F10103 		add	r3, r3, #1
+ 317 0084 7B61     		str	r3, [r7, #20]
+ 318              	.L6:
+  44:../src/main.c **** 	for (j=0; j<N; j++)
+ 319              		.loc 1 44 0 is_stmt 0 discriminator 1
+ 320 0086 7A69     		ldr	r2, [r7, #20]
+ 321 0088 FB68     		ldr	r3, [r7, #12]
+ 322 008a 9A42     		cmp	r2, r3
+ 323 008c CDDB     		blt	.L7
   47:../src/main.c **** 	}
   48:../src/main.c **** 	
   49:../src/main.c **** 	for (j=N-1; j>0; j--)
- 304              		.loc 1 49 0 is_stmt 1
- 305 008e FB68     		ldr	r3, [r7, #12]
- 306 0090 03F1FF33 		add	r3, r3, #-1
- 307 0094 7B61     		str	r3, [r7, #20]
- 308 0096 23E0     		b	.L8
- 309              	.L9:
+ 324              		.loc 1 49 0 is_stmt 1
+ 325 008e FB68     		ldr	r3, [r7, #12]
+ 326 0090 03F1FF33 		add	r3, r3, #-1
+ 327 0094 7B61     		str	r3, [r7, #20]
+ 328 0096 23E0     		b	.L8
+ 329              	.L9:
   50:../src/main.c **** 	{
   51:../src/main.c **** 		x_store[j] = x_store[j-1];
- 310              		.loc 1 51 0 discriminator 2
- 311 0098 7B69     		ldr	r3, [r7, #20]
- 312 009a 03F1FF32 		add	r2, r3, #-1
- 313 009e 40F20003 		movw	r3, #:lower16:x_store.3834
- 314 00a2 C0F20003 		movt	r3, #:upper16:x_store.3834
- 315 00a6 53F82210 		ldr	r1, [r3, r2, lsl #2]
- 316 00aa 40F20003 		movw	r3, #:lower16:x_store.3834
- 317 00ae C0F20003 		movt	r3, #:upper16:x_store.3834
- 318 00b2 7A69     		ldr	r2, [r7, #20]
- 319 00b4 43F82210 		str	r1, [r3, r2, lsl #2]
+ 330              		.loc 1 51 0 discriminator 2
+ 331 0098 7B69     		ldr	r3, [r7, #20]
+ 332 009a 03F1FF32 		add	r2, r3, #-1
+ 333 009e 40F20003 		movw	r3, #:lower16:x_store.3834
+ 334 00a2 C0F20003 		movt	r3, #:upper16:x_store.3834
+ 335 00a6 53F82210 		ldr	r1, [r3, r2, lsl #2]
+ 336 00aa 40F20003 		movw	r3, #:lower16:x_store.3834
+ 337 00ae C0F20003 		movt	r3, #:upper16:x_store.3834
+ 338 00b2 7A69     		ldr	r2, [r7, #20]
+ 339 00b4 43F82210 		str	r1, [r3, r2, lsl #2]
   52:../src/main.c **** 		y_store[j] = y_store[j-1];
- 320              		.loc 1 52 0 discriminator 2
- 321 00b8 7B69     		ldr	r3, [r7, #20]
- 322 00ba 03F1FF32 		add	r2, r3, #-1
- 323 00be 40F20003 		movw	r3, #:lower16:y_store.3835
- 324 00c2 C0F20003 		movt	r3, #:upper16:y_store.3835
- 325 00c6 53F82210 		ldr	r1, [r3, r2, lsl #2]
- 326 00ca 40F20003 		movw	r3, #:lower16:y_store.3835
- 327 00ce C0F20003 		movt	r3, #:upper16:y_store.3835
- 328 00d2 7A69     		ldr	r2, [r7, #20]
- 329 00d4 43F82210 		str	r1, [r3, r2, lsl #2]
+ 340              		.loc 1 52 0 discriminator 2
+ 341 00b8 7B69     		ldr	r3, [r7, #20]
+ 342 00ba 03F1FF32 		add	r2, r3, #-1
+ 343 00be 40F20003 		movw	r3, #:lower16:y_store.3835
+ 344 00c2 C0F20003 		movt	r3, #:upper16:y_store.3835
+ 345 00c6 53F82210 		ldr	r1, [r3, r2, lsl #2]
+ 346 00ca 40F20003 		movw	r3, #:lower16:y_store.3835
+ 347 00ce C0F20003 		movt	r3, #:upper16:y_store.3835
+ 348 00d2 7A69     		ldr	r2, [r7, #20]
+ 349 00d4 43F82210 		str	r1, [r3, r2, lsl #2]
   49:../src/main.c **** 	for (j=N-1; j>0; j--)
- 330              		.loc 1 49 0 discriminator 2
- 331 00d8 7B69     		ldr	r3, [r7, #20]
- 332 00da 03F1FF33 		add	r3, r3, #-1
- 333 00de 7B61     		str	r3, [r7, #20]
- 334              	.L8:
+ 350              		.loc 1 49 0 discriminator 2
+ 351 00d8 7B69     		ldr	r3, [r7, #20]
+ 352 00da 03F1FF33 		add	r3, r3, #-1
+ 353 00de 7B61     		str	r3, [r7, #20]
+ 354              	.L8:
   49:../src/main.c **** 	for (j=N-1; j>0; j--)
- 335              		.loc 1 49 0 is_stmt 0 discriminator 1
- 336 00e0 7B69     		ldr	r3, [r7, #20]
- 337 00e2 002B     		cmp	r3, #0
- 338 00e4 D8DC     		bgt	.L9
+ 355              		.loc 1 49 0 is_stmt 0 discriminator 1
+ 356 00e0 7B69     		ldr	r3, [r7, #20]
+ 357 00e2 002B     		cmp	r3, #0
+ 358 00e4 D8DC     		bgt	.L9
   53:../src/main.c **** 	}
   54:../src/main.c **** 	
   55:../src/main.c **** 	x_store[0] = x_n;
- 339              		.loc 1 55 0 is_stmt 1
- 340 00e6 40F20003 		movw	r3, #:lower16:x_store.3834
- 341 00ea C0F20003 		movt	r3, #:upper16:x_store.3834
- 342 00ee 3A68     		ldr	r2, [r7, #0]
- 343 00f0 1A60     		str	r2, [r3, #0]
+ 359              		.loc 1 55 0 is_stmt 1
+ 360 00e6 40F20003 		movw	r3, #:lower16:x_store.3834
+ 361 00ea C0F20003 		movt	r3, #:upper16:x_store.3834
+ 362 00ee 3A68     		ldr	r2, [r7, #0]
+ 363 00f0 1A60     		str	r2, [r3, #0]
   56:../src/main.c **** 	y_store[0] = y_n;
- 344              		.loc 1 56 0
- 345 00f2 40F20003 		movw	r3, #:lower16:y_store.3835
- 346 00f6 C0F20003 		movt	r3, #:upper16:y_store.3835
- 347 00fa 3A69     		ldr	r2, [r7, #16]
- 348 00fc 1A60     		str	r2, [r3, #0]
+ 364              		.loc 1 56 0
+ 365 00f2 40F20003 		movw	r3, #:lower16:y_store.3835
+ 366 00f6 C0F20003 		movt	r3, #:upper16:y_store.3835
+ 367 00fa 3A69     		ldr	r2, [r7, #16]
+ 368 00fc 1A60     		str	r2, [r3, #0]
   57:../src/main.c **** 	
   58:../src/main.c **** 	y_n /= 100; // scaling down
- 349              		.loc 1 58 0
- 350 00fe 3A69     		ldr	r2, [r7, #16]
- 351 0100 48F21F53 		movw	r3, #34079
- 352 0104 C5F2EB13 		movt	r3, 20971
- 353 0108 83FB0213 		smull	r1, r3, r3, r2
- 354 010c 4FEA6311 		asr	r1, r3, #5
- 355 0110 4FEAE273 		asr	r3, r2, #31
- 356 0114 CB1A     		subs	r3, r1, r3
- 357 0116 3B61     		str	r3, [r7, #16]
+ 369              		.loc 1 58 0
+ 370 00fe 3A69     		ldr	r2, [r7, #16]
+ 371 0100 48F21F53 		movw	r3, #34079
+ 372 0104 C5F2EB13 		movt	r3, 20971
+ 373 0108 83FB0213 		smull	r1, r3, r3, r2
+ 374 010c 4FEA6311 		asr	r1, r3, #5
+ 375 0110 4FEAE273 		asr	r3, r2, #31
+ 376 0114 CB1A     		subs	r3, r1, r3
+ 377 0116 3B61     		str	r3, [r7, #16]
   59:../src/main.c **** 	
   60:../src/main.c **** 	return y_n;
- 358              		.loc 1 60 0
- 359 0118 3B69     		ldr	r3, [r7, #16]
+ 378              		.loc 1 60 0
+ 379 0118 3B69     		ldr	r3, [r7, #16]
   61:../src/main.c **** }
- 360              		.loc 1 61 0
- 361 011a 1846     		mov	r0, r3
- 362 011c 07F11C07 		add	r7, r7, #28
- 363 0120 BD46     		mov	sp, r7
- 364 0122 80BC     		pop	{r7}
- 365 0124 7047     		bx	lr
- 366              		.cfi_endproc
- 367              	.LFE1:
- 369 0126 00BF     		.bss
- 370              		.align	2
- 371              	x_store.3834:
- 372 0000 00000000 		.space	40
- 372      00000000 
- 372      00000000 
- 372      00000000 
- 372      00000000 
- 373              		.align	2
- 374              	y_store.3835:
- 375 0028 00000000 		.space	40
- 375      00000000 
- 375      00000000 
- 375      00000000 
- 375      00000000 
- 376              		.text
- 377              	.Letext0:
+ 380              		.loc 1 61 0
+ 381 011a 1846     		mov	r0, r3
+ 382 011c 07F11C07 		add	r7, r7, #28
+ 383 0120 BD46     		mov	sp, r7
+ 384 0122 80BC     		pop	{r7}
+ 385 0124 7047     		bx	lr
+ 386              		.cfi_endproc
+ 387              	.LFE1:
+ 389 0126 00BF     		.bss
+ 390              		.align	2
+ 391              	x_store.3834:
+ 392 0000 00000000 		.space	40
+ 392      00000000 
+ 392      00000000 
+ 392      00000000 
+ 392      00000000 
+ 393              		.align	2
+ 394              	y_store.3835:
+ 395 0028 00000000 		.space	40
+ 395      00000000 
+ 395      00000000 
+ 395      00000000 
+ 395      00000000 
+ 396              		.text
+ 397              	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\raman\AppData\Local\Temp\ccOg1P1H.s:19     .rodata:00000000 $d
-C:\Users\raman\AppData\Local\Temp\ccOg1P1H.s:20     .rodata:00000000 .LC1
-C:\Users\raman\AppData\Local\Temp\ccOg1P1H.s:23     .rodata:0000001c .LC2
-C:\Users\raman\AppData\Local\Temp\ccOg1P1H.s:26     .rodata:00000038 .LC0
-C:\Users\raman\AppData\Local\Temp\ccOg1P1H.s:40     .text.main:00000000 $t
-C:\Users\raman\AppData\Local\Temp\ccOg1P1H.s:45     .text.main:00000000 main
-C:\Users\raman\AppData\Local\Temp\ccOg1P1H.s:229    .text.iir_c:00000000 iir_c
-C:\Users\raman\AppData\Local\Temp\ccOg1P1H.s:224    .text.iir_c:00000000 $t
-C:\Users\raman\AppData\Local\Temp\ccOg1P1H.s:371    .bss:00000000 x_store.3834
-C:\Users\raman\AppData\Local\Temp\ccOg1P1H.s:374    .bss:00000028 y_store.3835
-C:\Users\raman\AppData\Local\Temp\ccOg1P1H.s:370    .bss:00000000 $d
+C:\Users\raman\AppData\Local\Temp\ccJfXet6.s:19     .rodata:00000000 $d
+C:\Users\raman\AppData\Local\Temp\ccJfXet6.s:20     .rodata:00000000 .LC1
+C:\Users\raman\AppData\Local\Temp\ccJfXet6.s:23     .rodata:0000001c .LC2
+C:\Users\raman\AppData\Local\Temp\ccJfXet6.s:26     .rodata:00000038 .LC0
+C:\Users\raman\AppData\Local\Temp\ccJfXet6.s:40     .text.main:00000000 $t
+C:\Users\raman\AppData\Local\Temp\ccJfXet6.s:45     .text.main:00000000 main
+C:\Users\raman\AppData\Local\Temp\ccJfXet6.s:249    .text.iir_c:00000000 iir_c
+C:\Users\raman\AppData\Local\Temp\ccJfXet6.s:244    .text.iir_c:00000000 $t
+C:\Users\raman\AppData\Local\Temp\ccJfXet6.s:391    .bss:00000000 x_store.3834
+C:\Users\raman\AppData\Local\Temp\ccJfXet6.s:394    .bss:00000028 y_store.3835
+C:\Users\raman\AppData\Local\Temp\ccJfXet6.s:390    .bss:00000000 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
